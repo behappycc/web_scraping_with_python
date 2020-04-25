@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 
-response = requests.get("https://behappycc.github.io/web_scraping_with_python/parse_html.html")
+response = requests.get("https://behappycc.github.io/web_scraping_with_python/session2/parse_html.html")
 print(response.text)
 soup = BeautifulSoup(response.text, "html5lib") # 印出 h1 標籤
 
