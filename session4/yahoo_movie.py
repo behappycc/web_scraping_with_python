@@ -6,11 +6,6 @@ from bs4 import BeautifulSoup
 
 Y_MOVIE_URL = 'https://tw.movies.yahoo.com/movie_thisweek.html'
 
-# 以下網址後面加上 "/id=MOVIE_ID" 即為該影片各項資訊
-Y_INTRO_URL = 'https://tw.movies.yahoo.com/movieinfo_main.html'  # 詳細資訊
-Y_PHOTO_URL = 'https://tw.movies.yahoo.com/movieinfo_photos.html'  # 劇照
-Y_TIME_URL = 'https://tw.movies.yahoo.com/movietime_result.html'  # 時刻表
-
 
 def get_web_page(url):
     resp = requests.get(url)
@@ -57,25 +52,6 @@ def get_movie_id(url):
     except:
         movie_id = url
     return movie_id
-
-
-def get_trailer_url(url):
-    # e.g., 'https://tw.rd.yahoo.com/referurl/movie/thisweek/trailer/*https://tw.movies.yahoo.com/video/美女與野獸-最終版預告-024340912.html'
-    return url.split('*')[1]
-
-
-def get_complete_intro(movie_id):
-    page = get_web_page(Y_INTRO_URL + '/id=' + movie_id)
-    if page:
-        soup = BeautifulSoup(page, 'html5lib')
-        infobox = soup.find('div', 'gray_infobox_inner')
-        title_span = infobox.find('span', 'title2')
-        if title_span:
-            print(title_span['title2'])
-        else:
-            print(infobox.text.strip())
-    return None
-
 
 if __name__ == '__main__':
     page = get_web_page(Y_MOVIE_URL)
