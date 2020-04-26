@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 
 
 def main():
-    url1 = 'https://behappycc.github.io/web_scraping_with_python/first_crawler.html'
+    url1 = 'https://behappycc.github.io/web_scraping_with_python/session1/first_crawler.html'
     bad_url = 'http://non-existed.domain/first_crawler.html'
     text1 = get_tag_text(url1, 'h1')
     print(text1)

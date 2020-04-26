@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 
 response = requests.get("https://behappycc.github.io/web_scraping_with_python/session2/parse_html.html")
 print(response.text)
-soup = BeautifulSoup(response.text, "html5lib") # 印出 h1 標籤
+soup = BeautifulSoup(response.text, "html5lib")
 
 h1_text = soup.find("h1")
 print(f'h1: {h1_text}')
